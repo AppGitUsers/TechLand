@@ -1,0 +1,11 @@
+/* parent container provides 3D perspective */
+.service-card {
+  perspective: 800px;
+  display: inline-block;
+}
+
+
+/* hover on the CARD or icon container */
+.service-card:hover .service-icon {
+  transform: rotateY(180deg);
+}
