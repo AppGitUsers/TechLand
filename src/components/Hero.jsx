@@ -26,20 +26,6 @@ function Hero() {
               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" alt="Development team at work" loading="eager" />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(12,90,245,0.15) 0%, transparent 50%)" }} />
             </div>
-            <div className="hero-float-card card-1">
-              <div className="float-icon">✅</div>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 600 }}>Project Delivered</div>
-                <div style={{ fontSize: 11, color: "var(--gray)", marginTop: 2 }}>E-commerce platform • 6 weeks</div>
-              </div>
-            </div>
-            <div className="hero-float-card card-2">
-              <div className="float-icon">📈</div>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 600 }}>+340% Performance</div>
-                <div style={{ fontSize: 11, color: "var(--gray)", marginTop: 2 }}>After infrastructure upgrade</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

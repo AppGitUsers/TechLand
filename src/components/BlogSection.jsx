@@ -7,10 +7,10 @@ function BlogSection() {
   return (
     <section className="section blog-section" id="blog">
       <div className="container">
-        <div className="heading-section" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 20 }}>
+        <div className="heading-section">
           <div className="reveal">
-            <div className="tag-label"><span className="hex-dot" style={{ background: "var(--primary)" }} />Latest Insights</div>
-            <h2 style={{ marginTop: 16 }}>From Our Blog</h2>
+            <div className="tag-label"><span className="hex-dot"  style={{ background: "var(--primary)" }}/>Latest Insights</div>
+            <h2 >From Our Blog</h2>
           </div>
           <a href="#" className="btn btn-border reveal" style={{background:"var(--primary)", color:"white"}}>View All Posts →</a>
         </div>
@@ -26,7 +26,7 @@ function BlogSection() {
                   <span>📅 {b.date}</span>
                   <span>⏱ {b.read}</span>
                 </div>
-                <h3 className="blog-title" style={{ fontSize: 17 }}>{b.title}</h3>
+                <h3 className="blog-title" >{b.title}</h3>
                 <p className="blog-excerpt">{b.excerpt}</p>
               </div>
             </div>
@@ -37,3 +37,6 @@ function BlogSection() {
   );
 }
 export default BlogSection
+//style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 20 }}
+//style={{ marginTop: 16 }}
+//

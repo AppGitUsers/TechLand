@@ -84,8 +84,10 @@ const GLOBAL_CSS = `
   }
 
   /* Container */
-  .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-  .container-full { max-width: 1440px; margin: 0 auto; }
+  .container { width: 100%; max-width: 1400px; margin: auto; padding-left: 20px; padding-right: 20px; }
+
+  @media (max-width:768px){ .container{ padding-left:16px; padding-right:16px; } }
+  
 
   /* Hexagon flicker dot */
   .hex-dot {
@@ -248,7 +250,7 @@ const GLOBAL_CSS = `
   .hero-float-card.card-2 { top: 30px; right: -20px; }
   @media (max-width: 991px) { .hero-float-card { display: none; } }
   .float-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-
+@media (max-width: 991px) {.hero { padding-top: 80px; } .hero-content { text-align: center; } .hero-btns { justify-content: center; } }
   /* Counter */
   .counter-section { padding: 60px 0; border-top: 1px solid var(--dark2); border-bottom: 1px solid var(--dark2); }
   .counter-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
@@ -265,6 +267,9 @@ const GLOBAL_CSS = `
   .brand-item { display: flex; align-items: center; justify-content: center; padding: 0 60px; opacity: 0.4; transition: opacity 0.3s; filter: grayscale(1) brightness(2); }
   .brand-item:hover { opacity: 1; filter: none; }
   .brand-logo { height: 32px; width: auto; object-fit: contain; }
+  .brand-item { padding: 0 30px; }
+
+@media (max-width:768px){ .brand-item { padding: 0 20px; } }
 
   /* Services */
   .services-section { background: var(--body-bg2); }
@@ -325,7 +330,7 @@ const GLOBAL_CSS = `
   .team-card::after { content: ''; position: absolute; inset: 0; border-radius: 20px; border: 1px solid var(--primary); opacity: 0; transition: var(--transition); }
   .team-card:hover { transform: translateY(-6px); }
   .team-card:hover::after { opacity: 1; }
-  .team-avatar { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; border: 3px solid rgba(12,90,245,0.3); }
+  .team-avatar { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; border: 3px solid rgba(12,90,245,0.3); }
   .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .team-name { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
   .team-role { color: var(--primary); font-size: 13px; font-weight: 500; margin-bottom: 16px; }
@@ -383,6 +388,8 @@ const GLOBAL_CSS = `
   .contact-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
   .contact-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(12,90,245,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--primary); font-size: 15px; }
   .contact-text { color: var(--gray); font-size: 13px; line-height: 1.5; }
+  @media (max-width: 991px){ .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 575px){.footer-grid { grid-template-columns: 1fr; } }
 
   /* Scroll-to-top */
   .scroll-top {
@@ -407,8 +414,8 @@ const GLOBAL_CSS = `
   .reveal-delay-4 { transition-delay: 0.4s; }
 
   /* Two-col layout */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  @media (max-width: 991px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
+  .two-col {display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 991px) {.two-col { grid-template-columns: 1fr; } }
 
   /* Responsive helpers */
   @media (max-width: 767px) {
@@ -418,6 +425,19 @@ const GLOBAL_CSS = `
     .footer-bottom { flex-direction: column; text-align: center; }
     .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
   }
+    img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
 `;
 
 function GlobalStyles() {
@@ -430,3 +450,4 @@ function GlobalStyles() {
   return null;
 }
 export default GlobalStyles
+// .container-full { max-width: 1440px; margin: 0 auto; }

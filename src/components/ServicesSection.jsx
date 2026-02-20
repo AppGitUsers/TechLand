@@ -14,7 +14,7 @@ function ServicesSection() {
         <div className="heading-section reveal">
           <div className="tag-label"><span className="hex-dot" style={{ background: "var(--primary)" }} />What We Do</div>
           <h2 style={{ marginTop: 16 }}>Technology Solutions Built to Scale</h2>
-          <p className="sub" style={{marginLeft:300}} >From startups to enterprises, our services cover every layer of the modern technology stack — designed for performance, reliability and growth.</p>
+          <p className="sub">From startups to enterprises, our services cover every layer of the modern technology stack — designed for performance, reliability and growth.</p>
         </div>
         <div className="grid-3">
           {SERVICES.map((s, i) => (
@@ -27,14 +27,6 @@ function ServicesSection() {
               <a href="#contact" className="service-link">Learn more  <span className="service-link-arrow">↗</span></a>
             </div>
           ))}
-          {/* {SERVICES1.map((s, i) => (
-            <div key={i} className={`service-card reveal reveal-delay-${(i % 3) + 1}`}>
-              <img className="service-icon">{s.icon}</img>
-              <div className="service-title">{s.title}</div>
-              <p className="service-desc">{s.desc}</p>
-              <a href="#contact" className="service-link">Learn more <span className="service-link-arrow">↗</span></a>
-            </div>
-          ))} */}
         </div>
       </div>
     </section>

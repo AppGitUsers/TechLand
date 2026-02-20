@@ -15,8 +15,7 @@ function WhySection() {
               We don't just write code — we solve business problems. Every decision we make is driven by measurable outcomes for your company.
             </p>
         </div>
-        <div className="two-col">
-          <div style= {{display:"flex", marginLeft:200}}>
+        <div className="two-col" >
             <div className="why-list">
               {WHY_ITEMS.map((w, i) => (
                 <div key={i} className={`why-item reveal reveal-delay-${Math.min(i + 1, 4)}`}>
@@ -26,16 +25,16 @@ function WhySection() {
                     <div className="why-item-desc">{w.desc}</div>
                   </div>
                 </div>
-              ))}    
-          </div>
-          <div className="why-image reveal reveal-delay-2" style={{ minHeight: 420, height:650 ,width :980 ,display: "inline",marginLeft:50}}>
+              ))}
+            </div>
+          <div className="why-image reveal reveal-delay-2" >
             <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80" alt="Team collaborating" />
             <div className="why-badge">
               <div className="why-badge-num">15+</div>
               <div className="why-badge-text">Years of Excellence</div>
             </div>
           </div>
-        </div>
+        
       </div>
     </section>
   );

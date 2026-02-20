@@ -13,8 +13,10 @@ function FAQSection() {
       <div className="container">
         <div className="heading-section reveal" style={{ textAlign: "center" }}>
           <div className="tag-label" style={{ justifyContent: "center" }}><span className="hex-dot" style={{ background: "var(--orange)" }} />FAQ</div>
-          <h2 style={{ marginTop: 16 }}>Frequently Asked Questions</h2>
-          <p className="sub" style={{ margin: "12px auto 0" }}>Everything you need to know before working with us — and if you can't find your answer, just ask.</p>
+          <h2 >Frequently Asked Questions</h2>
+          {/* style={{ marginTop: 16 }} */}
+          <p className="sub" >Everything you need to know before working with us — and if you can't find your answer, just ask.</p>
+        {/* style={{ margin: "12px auto 0" }} */}
         </div>
         <div className="faq-wrap reveal">
           {FAQS.map((f, i) => <FAQItem key={i} {...f} />)}

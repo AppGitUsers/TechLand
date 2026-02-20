@@ -49,15 +49,15 @@ function FooterSection() {
             </div>
           <div>
             <div className="footer-col-title">Stay Updated</div>
-            <p style={{ color: "var(--gray)", fontSize: 14, marginBottom: 20}}>Get the latest insights on tech and innovation delivered to your inbox.</p>
+            <p style={{ color: "var(--gray)"}}>Get the latest insights on tech and innovation delivered to your inbox.</p>
             <form onSubmit={handleSubmit}>
               <div className="footer-newsletter-form">
                 <input className="footer-input" type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <button type="submit" className="btn" style={{ height: 42, padding: "0 16px", fontSize: 13, flexShrink: 0 }}>→</button>
+                <button type="submit" className="btn" >→</button>
               </div>
             </form>
             <div style={{ marginTop: 28 }}>
-              <div className="footer-col-title" style={{ marginBottom: 16 }}>Contact</div>
+              <div className="footer-col-title" >Contact</div>
               {[
                 { icon: "📧", text: "hello@techland.io" },
                 { icon: "📞", text: "+1 (555) 123-4567" },
@@ -86,3 +86,6 @@ function FooterSection() {
 export default FooterSection
 // paddingRight:20,marginRight:1
 //style ={{margin:10}}
+//style={{ marginBottom: 16 }}
+//style={{ height: 42, padding: "0 16px", fontSize: 13, flexShrink: 0 }}
+//fontSize: 14, marginBottom: 20
