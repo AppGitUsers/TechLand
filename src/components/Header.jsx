@@ -1,5 +1,5 @@
 import { useState } from "react";
-const NAV_LINKS = ["Home", "Services", "About", "Portfolio", "Blog", "Contact"];
+const NAV_LINKS = ["Home", "Services","UpComingTech", "About", "Portfolio", "Blog", "Contact"];
 function Header({ scrolled }) {
   const [open, setOpen] = useState(false);
   return (

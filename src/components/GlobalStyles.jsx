@@ -154,7 +154,45 @@ const GLOBAL_CSS = `
   }
 
   /* Heading section */
-  .heading-section { margin-bottom: 60px; }
+  .heading-section {
+  margin-bottom: 60px;
+}
+
+.services-section .heading-section {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-section .tag-label {
+  justify-content: center;
+}
+
+.services-section .sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+upcoming-section {
+  background: var(--body-bg);
+}
+.upcoming-section .heading-section {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upcoming-section .tag-label {
+  justify-content: center;
+}
+
+.upcoming-section .sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
   .heading-section .sub { color: var(--gray); font-size: 15px; margin-top: 16px; max-width: 540px; line-height: 1.7; }
 
   /* Marquee wrapper */
@@ -337,9 +375,9 @@ const GLOBAL_CSS = `
   .team-social { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .team-social-link { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--gray3); color: var(--gray); display: flex; align-items: center; justify-content: center; font-size: 14px; transition: var(--transition); }
   .team-social-link:hover { background: var(--primary); border-color: var(--primary); color: var(--white); }
-
+  .team-section { background: var(--body-bg2); }
   /* Testimonials */
-  .testimonials-section { background: var(--body-bg2); }
+  .testimonials-section {}
   .testimonial-slider { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   @media (max-width: 991px) { .testimonial-slider { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 575px) { .testimonial-slider { grid-template-columns: 1fr; } }
@@ -354,7 +392,11 @@ const GLOBAL_CSS = `
   .testimonial-company { font-size: 12px; color: var(--gray); }
 
   /* FAQ */
-  .faq-section {}
+  .faq-section {background: var(--body-bg2);}
+  .faq-section .sub {
+  margin-left: auto;
+  margin-right: auto;
+}
   .faq-wrap { max-width: 860px; margin: 0 auto; }
   .faq-item { border: 1px solid var(--dark2); border-radius: 16px; margin-bottom: 16px; overflow: hidden; transition: border-color 0.3s; }
   .faq-item.open { border-color: rgba(12,90,245,0.4); }
@@ -451,3 +493,6 @@ function GlobalStyles() {
 }
 export default GlobalStyles
 // .container-full { max-width: 1440px; margin: 0 auto; }
+//  .upcoming-section {
+//   background: var(--body-bg2);
+// }

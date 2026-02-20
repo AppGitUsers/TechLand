@@ -7,7 +7,7 @@ const TEAM = [
 
 function TeamSection() {
   return (
-    <section className="section" id="team">
+    <section className="section team-section" id="team">
       <div className="container">
         <div className="heading-section reveal" style={{ textAlign: "center" }}>
           <div className="tag-label" style={{ justifyContent: "center" }}><span className="hex-dot" style={{ background: "var(--green)" }} />Our People</div>

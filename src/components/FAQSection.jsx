@@ -9,7 +9,7 @@ const FAQS = [
 ];
 function FAQSection() {
   return (
-    <section className="section" id="faq">
+    <section className="section faq-section" id="faq">
       <div className="container">
         <div className="heading-section reveal" style={{ textAlign: "center" }}>
           <div className="tag-label" style={{ justifyContent: "center" }}><span className="hex-dot" style={{ background: "var(--orange)" }} />FAQ</div>

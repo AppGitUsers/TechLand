@@ -14,6 +14,7 @@ import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import FooterSection from './components/FooterSection'
 import ScrollTopButton from './components/ScrollTopButton'
+import UpComingTech from './components/UpComingTech'
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -55,6 +56,7 @@ function App() {
         <ServicesSection />
         <WhySection />
         <BlogSection />
+        <UpComingTech/>
         <TeamSection />
         <TestimonialsSection />
         <FAQSection />
