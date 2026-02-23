@@ -15,6 +15,8 @@ import FAQSection from './components/FAQSection'
 import FooterSection from './components/FooterSection'
 import ScrollTopButton from './components/ScrollTopButton'
 import UpComingTech from './components/UpComingTech'
+import ServiceQuery from './pages/queryform'
+import { Route,Routes } from 'react-router-dom'
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -49,19 +51,25 @@ function App() {
       <GlobalStyles />
       <Preloader done={loaded} />
       <Header scrolled={scrolled} />
-      <main>
-        <Hero />
-        <CounterSection />
-        <BrandsMarquee />
-        <ServicesSection />
-        <WhySection />
-        <BlogSection />
-        <UpComingTech/>
-        <TeamSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <FooterSection />
-      </main>
+      <Routes>
+        <Route path = "/" element={
+          <>
+            <Hero />
+            <CounterSection />
+            <BrandsMarquee />
+            <ServicesSection />
+            <WhySection />
+            <BlogSection />
+            <UpComingTech/>
+            {/* <TeamSection /> */}
+            <TestimonialsSection />
+            <FAQSection />
+            <FooterSection />
+          
+          </>
+        }/>
+        <Route path="/query" element={<ServiceQuery/>}/>
+      </Routes>
       <ScrollTopButton />
     </>
   )

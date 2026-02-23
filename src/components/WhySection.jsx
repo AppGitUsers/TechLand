@@ -1,5 +1,5 @@
 const WHY_ITEMS = [
-  { title: "Proven Track Record", desc: "Over 250 successful projects delivered across industries with measurable business impact." },
+  { title: "Scalable Architecture", desc: "Built for growth from day one. Our solutions scale as your business grows." },
   { title: "Agile Methodology", desc: "Rapid iteration, transparent communication, and on-time delivery are our non-negotiables." },
   { title: "Full-Stack Expertise", desc: "From UI design to cloud infra — we cover the entire technology stack under one roof." },
   { title: "24/7 Support", desc: "Round-the-clock monitoring and dedicated support teams to keep your systems running." },
