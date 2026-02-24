@@ -3,7 +3,7 @@ import './App.css'
 import GlobalStyles from './components/GlobalStyles'
 import Preloader from './components/Preloader'
 import Header from './components/Header'
-
+import FooterSection from './components/FooterSection'
 import Portfolio from './components/Portfolio'
 import {Routes,Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
@@ -24,7 +24,7 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 1600);
+    const t = setTimeout(() => setLoaded(true), 150);
     return () => clearTimeout(t);
   }, []);
 
@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Preloader done={loaded} />
+     <Preloader done={loaded} />
       <Header scrolled={scrolled} />
       <main>
         <Routes>
@@ -47,6 +47,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio/>}></Route>
         </Routes>
       </main>
+      <FooterSection />
         
       
     </>

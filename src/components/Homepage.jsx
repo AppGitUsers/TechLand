@@ -7,9 +7,9 @@ import BlogSection from './BlogSection'
 import TeamSection from './TeamSection'
 import TestimonialsSection from './TestimonialsSection'
 import FAQSection from './FAQSection'
-import FooterSection from './FooterSection'
 import ScrollTopButton from './ScrollTopButton'
 import UpComingTech from './UpComingTech'
+import Banner from './Banner'
 const Homepage =() =>{
     
     return(
@@ -21,10 +21,10 @@ const Homepage =() =>{
             <WhySection />
             <BlogSection />
             <UpComingTech/>
-            <TeamSection/> 
+            <TeamSection/>
             <TestimonialsSection />
             <FAQSection />
-            <FooterSection />
+            <Banner/>
             <ScrollTopButton />
         </>
     )

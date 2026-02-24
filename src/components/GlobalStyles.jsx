@@ -409,7 +409,7 @@ upcoming-section {
   .faq-body-inner { padding: 0 28px 24px; color: var(--gray); font-size: 15px; line-height: 1.75; }
 
   /* Footer */
-  .site-footer { background: var(--body-bg2); border-top: 1px solid var(--dark2); padding-top: 80px; }
+  .site-footer { background: var(--body-bg2); border-top: 1px solid var(--dark2);}
   .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.6fr; gap: 50px; padding-bottom: 60px; border-bottom: 1px solid var(--dark2); }
   @media (max-width: 991px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 575px) { .footer-grid { grid-template-columns: 1fr; } }
@@ -435,6 +435,7 @@ upcoming-section {
   @media (max-width: 575px){.footer-grid { grid-template-columns: 1fr; } }
 
   /* Scroll-to-top */
+  /*id="contact"*/
   .scroll-top {
     position: fixed; bottom: 32px; right: 20px;
     width: 44px; height: 44px; border-radius: 50%;
