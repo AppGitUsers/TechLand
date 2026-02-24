@@ -1,11 +1,12 @@
 import "../css/icon.css";
+import { Link } from "react-router-dom";
 const SERVICES = [
-  { icon: "/icon/icon-box-1.svg", title: "Web Development", desc: "Custom, high-performance websites and web apps built with modern frameworks and best practices for optimal UX." },
-  { icon: "/icon/icon-box-2.svg", title: "Mobile Applications", desc: "Native and cross-platform mobile apps for iOS and Android, designed to engage users and drive growth." },
-  { icon: "/icon/icon-box-3.svg", title: "Cloud Solutions", desc: "Scalable cloud infrastructure and migration services that cut costs and boost reliability for your business." },
-  { icon: "/icon/icon-box-4.svg", title: "Cybersecurity", desc: "End-to-end security audits, penetration testing, and managed security services to protect your digital assets." },
-  { icon: "/icon/icon-box-5.svg", title: "AI & Machine Learning", desc: "Intelligent automation, data pipelines, and ML models that turn raw data into competitive advantage." },
-  { icon: "/icon/icon-box-6.svg", title: "Data Analytics", desc: "Real-time dashboards, BI integration, and deep analytics to give you the insights that drive decisions." },
+  { icon: "/icon/icon-box-1.svg", title: "Custom Web Applications", desc: "We build powerful web applications for startups and enterprises — including admin dashboards, role-based systems, automation workflows, and database-driven platforms. Our solutions are optimized for performance, security, and real-world scalability." },
+  { icon: "/icon/icon-box-2.svg", title: "Mobile & Cross-Platform Applications", desc: "We develop modern mobile applications for Android and iOS, including cross-platform apps for faster deployment. From business apps to internal management systems, we deliver smooth, user-friendly mobile experiences that scale with your growth." },
+  { icon: "/icon/icon-box-3.svg", title: "Responsive Websites & Business Portals", desc: "We design and develop fully responsive websites that work seamlessly across desktop, tablet, and mobile devices. From company profiles to dynamic business portals with form handling and database integration, we build fast, secure, and scalable web solutions tailored to your brand and goals." },
+  { icon: "/icon/icon-box-4.svg", title: "Desktop Applications & Enterprise Software", desc: "We create secure and efficient desktop applications tailored for business operations. Whether it's internal tools, data management systems, or offline-enabled software, our solutions are built for reliability and long-term usage." },
+  { icon: "/icon/icon-box-5.svg", title: "CRM & Business Automation Systems", desc: "We develop customized CRM tools to manage leads, customers, staff, and workflows efficiently. From invoice management to automated email notifications and reporting dashboards, our CRM solutions streamline operations and increase productivity." },
+  { icon: "/icon/icon-box-6.svg", title: "Invoice Management & Ongoing Maintenance Services", desc: "We build systems that collect invoice data, securely store it in databases, and generate structured reports for business tracking. In addition, we provide continuous maintenance, performance optimization, security updates, and long-term technical support for all delivered solutions." },
 ];
 function ServicesSection() {
   return (
@@ -24,7 +25,7 @@ function ServicesSection() {
               </div>
               <div className="service-title">{s.title}</div>
               <p className="service-desc">{s.desc}</p>
-              <a href="#contact" className="service-link">Learn more  <span className="service-link-arrow">↗</span></a>
+              <Link to={`/query?service=${encodeURIComponent(s.title)}` }className="service-link">Select Service  <span className="service-link-arrow">↗</span></Link>
             </div>
           ))}
         </div>

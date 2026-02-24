@@ -5,7 +5,7 @@ import Preloader from './components/Preloader'
 import Header from './components/Header'
 
 import Portfolio from './components/Portfolio'
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import {Routes,Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
 function useReveal() {
   useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
     <>
       <GlobalStyles />
       <Preloader done={loaded} />
-      <Header scrolled={scrolled} /> 
+      <Header scrolled={scrolled} />
       <main>
         <Routes>
           <Route path="/" element={<Homepage/>}/>

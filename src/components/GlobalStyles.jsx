@@ -321,6 +321,7 @@ upcoming-section {
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(135deg, rgba(12,90,245,0.05) 0%, transparent 60%);
     opacity: 0; transition: opacity 0.3s;
+    pointer-events:none;
   }
   .service-card:hover { border-color: rgba(12,90,245,0.12); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
   .service-card:hover::before { opacity: 1; }

@@ -8,7 +8,7 @@ function Hero() {
           <div className="hero-content">
             <div className="hero-tag">
               <span className="hex-dot" style={{ background: "var(--green)" }} />
-              Trusted by 250+ global companies
+              . Build . Scale . Automate .
             </div>
             <h1 className="hero-title">
               We Build <span className="accent">Technology</span> That Drives Growth
