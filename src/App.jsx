@@ -3,18 +3,10 @@ import './App.css'
 import GlobalStyles from './components/GlobalStyles'
 import Preloader from './components/Preloader'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import CounterSection from './components/CounterSection'
-import BrandsMarquee from './components/BrandsMarquee'
-import ServicesSection from './components/ServicesSection'
-import WhySection from './components/WhySection'
-import BlogSection from './components/BlogSection'
-import TeamSection from './components/TeamSection'
-import TestimonialsSection from './components/TestimonialsSection'
-import FAQSection from './components/FAQSection'
-import FooterSection from './components/FooterSection'
-import ScrollTopButton from './components/ScrollTopButton'
-import UpComingTech from './components/UpComingTech'
+
+import Portfolio from './components/Portfolio'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import Homepage from './components/Homepage'
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -48,21 +40,15 @@ function App() {
     <>
       <GlobalStyles />
       <Preloader done={loaded} />
-      <Header scrolled={scrolled} />
+      <Header scrolled={scrolled} /> 
       <main>
-        <Hero />
-        <CounterSection />
-        <BrandsMarquee />
-        <ServicesSection />
-        <WhySection />
-        <BlogSection />
-        <UpComingTech/>
-        <TeamSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <FooterSection />
+        <Routes>
+          <Route path="/" element={<Homepage/>}/>
+          <Route path="/portfolio" element={<Portfolio/>}></Route>
+        </Routes>
       </main>
-      <ScrollTopButton />
+        
+      
     </>
   )
 }

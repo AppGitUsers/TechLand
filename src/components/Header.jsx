@@ -12,11 +12,20 @@ function Header({ scrolled }) {
               <ul className="nav-list">
                 {NAV_LINKS.map((l) => (
                   <li key={l}>
-                    <a href={`#${l.toLowerCase()}`} className="nav-link">
+                  {
+                    l==="Portfolio"?(
+                    <a href={`/${l.toLowerCase()}`} className="nav-link">
+                      <span className="hex" />
+                      {l}
+                    </a>):(
+                    <a href={`/#${l.toLowerCase()}`} className="nav-link">
                       <span className="hex" />
                       {l}
                     </a>
+                    )
+                  }
                   </li>
+                  
                 ))}
               </ul>
             </nav>
@@ -32,7 +41,12 @@ function Header({ scrolled }) {
         <button className="mobile-menu-close" onClick={() => setOpen(false)}>✕</button>
         <a href="#" className="site-logo" style={{ marginBottom: 32, display: "block" }}>Tech<span style={{ color: "var(--primary)" }}>land</span></a>
         {NAV_LINKS.map((l) => (
-          <a key={l} href={`#${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>
+          <div key={l}>
+          {
+            l==="Portfolio"?(<a key={l} href={`/${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>):
+            (<a key={l} href={`/#${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>)
+          }
+          </div>
         ))}
         <a href="#contact" className="btn" style={{ marginTop: 24, justifyContent: "center" }}>Get Started →</a>
       </div>
