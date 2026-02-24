@@ -5,18 +5,7 @@ function FooterSection() {
   const handleSubmit = (e) => { e.preventDefault(); setEmail(""); };
   return (
     <footer className="site-footer" id="contact">
-      {/* CTA Banner */}
-      <div style={{ background: "var(--primary)", padding: "60px 0", marginBottom: 0 }}>
-        <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ color: "var(--white)", marginBottom: 16 }}>Ready to Build Something Great?</h2>
-          <p style={{ color: "rgba(255,255,255,0.75)", marginBottom: 32, fontSize: 16 }}>Tell us about your project and we'll get back to you within 24 hours.</p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="/query" className="btn btn-white">Send Us a Message</a>
-            <a href="tel:+15551234567" className="btn" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)" }}>+1 (555) 123-4567</a>
-          </div>
-        </div>
-      </div>
-      {/* Footer body */}
+      {/*  */}
       <div className="container">
         <div className="footer-grid" style={{ marginTop: 60 }}>
           <div>
@@ -40,10 +29,19 @@ function FooterSection() {
             <div className="footer-col-title" >Company</div>
                 {NAV_LINKS.map((l) => (
                   <div key={l} className="footer-col-title">
-                    <a href={`#${l.toLowerCase()}`} className="footer-link">
-                      <span className="hex" />
-                      {l}
-                    </a>
+                    {
+                      l==="Portfolio"?(
+                        <a href={`/${l.toLowerCase()}`} className="footer-link">
+                        <span className="hex" />
+                          {l}
+                        </a>
+                      ):(
+                        <a href={`/#${l.toLowerCase()}`} className="footer-link">
+                        <span className="hex" />
+                          {l}
+                        </a>
+                      )
+                    }
                   </div>
                 ))}
             </div>

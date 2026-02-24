@@ -3,7 +3,7 @@ import './App.css'
 import GlobalStyles from './components/GlobalStyles'
 import Preloader from './components/Preloader'
 import Header from './components/Header'
-
+import FooterSection from './components/FooterSection'
 import Portfolio from './components/Portfolio'
 import {Routes,Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
@@ -47,6 +47,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio/>}></Route>
         </Routes>
       </main>
+      <FooterSection />
         
       
     </>
