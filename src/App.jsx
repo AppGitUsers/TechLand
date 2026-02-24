@@ -24,7 +24,7 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 1600);
+    const t = setTimeout(() => setLoaded(true), 150);
     return () => clearTimeout(t);
   }, []);
 
@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Preloader done={loaded} />
+     <Preloader done={loaded} />
       <Header scrolled={scrolled} />
       <main>
         <Routes>
