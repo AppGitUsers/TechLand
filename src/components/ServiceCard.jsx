@@ -1,27 +1,30 @@
 import { useState, useEffect, useMemo } from "react";
+import ProgressBar from "./ProgressBar";
 
 function ServiceCard({ service }) {
 
   // 1️⃣ Create fixed launch date (3 months from first render)
-  const launchDate = useMemo(() => {
-    const saved = localStorage.getItem(service.title);
+//   const launchDate = useMemo(() => {
+//     const saved = localStorage.getItem(service.title);
 
-    if (saved) return new Date(saved);
+//     if (saved) return new Date(saved);
 
-    const date = new Date();
-    date.setMonth(date.getMonth() + 3);
+//     const date = new Date();
+//     date.setMonth(date.getMonth() + 3);
 
-    localStorage.setItem(service.title, date);
-    return date;
-  }, [service.title]);
+//     localStorage.setItem(service.title, date);
+//     return date;
+//   }, [service.title]);
+
 
   // 2️⃣ Calculate time left
   const calculateTimeLeft = () => {
     const now = new Date();
-    const difference = launchDate - now;
+    const difference = new Date(service.launchDate) - now;
+    // console.log(typeof(service.launchDate));
 
     if (difference <= 0) return null;
-
+    //console.log(difference/ (1000 * 60 * 60 * 24));
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -64,16 +67,20 @@ function ServiceCard({ service }) {
 
       <h3 className="service-title">{service.title}</h3>
       <p className="service-desc">{service.desc}</p>
-
       <div className="countdown">
         <div className="time-box">
           <span>{timeLeft.days}</span>
           <small>Days</small>
         </div>
 
-        <div className="time-box">
+        <div className="time-box" >
           <span>{timeLeft.hours}</span>
           <small>Hours</small>
+        </div>
+
+        <div className="time-box">
+          <span>{timeLeft.minutes}</span>
+          <small>Min</small>
         </div>
 
         <div className="time-box">
@@ -83,9 +90,11 @@ function ServiceCard({ service }) {
       </div>
 
       <div className="progress-wrapper">
-        <div
-          className="progress-bar"
-          style={{ width: `${progress}%` }}
+        <ProgressBar
+          className="progress-fill"
+          launchDate={service.launchDate}
+          startDate={service.startDate}
+          //style={{ width: `${progress}%` }}
         />
       </div>
 

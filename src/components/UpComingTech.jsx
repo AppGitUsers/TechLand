@@ -7,7 +7,7 @@ const SERVICES = [
     icon: "/icon/icon-box-1.svg",
     title: "N8N Automation",
     desc: "Automation workflows...",
-    launchDate: "2026-05-24T00:00:00",
+    launchDate: "2026-05-25T00:00:00",
     startDate: "2026-02-24T00:00:00"
   },
   {
