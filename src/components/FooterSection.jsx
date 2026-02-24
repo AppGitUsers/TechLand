@@ -4,7 +4,7 @@ function FooterSection() {
   const [email, setEmail] = useState("");
   const handleSubmit = (e) => { e.preventDefault(); setEmail(""); };
   return (
-    <footer className="site-footer" id="contact">
+    <footer className="site-footer" >
       {/*  */}
       <div className="container">
         <div className="footer-grid" style={{ marginTop: 60 }}>

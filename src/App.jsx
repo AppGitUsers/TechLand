@@ -7,6 +7,7 @@ import FooterSection from './components/FooterSection'
 import Portfolio from './components/Portfolio'
 import {Routes,Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
+import QueryForm from './pages/queryform'
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -44,6 +45,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
+          <Route path = "/query" element={<QueryForm/>}/>
           <Route path="/portfolio" element={<Portfolio/>}></Route>
         </Routes>
       </main>

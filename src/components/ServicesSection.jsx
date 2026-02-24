@@ -25,7 +25,7 @@ function ServicesSection() {
               </div>
               <div className="service-title">{s.title}</div>
               <p className="service-desc">{s.desc}</p>
-              <Link to={`/query?service=${encodeURIComponent(s.title)}` }className="service-link">Select Service  <span className="service-link-arrow">↗</span></Link>
+              <a href={`/query?service=${encodeURIComponent(s.title)}` }className="service-link">Select Service  <span className="service-link-arrow">↗</span></a>
             </div>
           ))}
         </div>
