@@ -775,6 +775,99 @@ body {
   color: var(--gray);
   margin-bottom: 30px;
 }
+  .service-card {
+  background: linear-gradient(145deg, #0f172a, #111827);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 40px;
+  border-radius: 24px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 120px rgba(12,90,245,0.25);
+}
+
+.service-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.service-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(12,90,245,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-badge {
+  background: linear-gradient(90deg,#0c5af5,#6a5af9);
+  padding: 6px 14px;
+  font-size: 11px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.service-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.service-desc {
+  color: var(--gray);
+  margin-bottom: 25px;
+}
+  .countdown {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+.time-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-align: center;
+  min-width: 70px;
+  backdrop-filter: blur(10px);
+}
+
+.time-box span {
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+}
+
+.time-box small {
+  font-size: 11px;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+  .progress-wrapper {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg,#0c5af5,#6a5af9);
+  transition: width 1s ease;
+  border-radius: 50px;
+}
 `;
 
 function GlobalStyles() {
