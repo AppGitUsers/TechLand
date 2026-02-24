@@ -378,7 +378,8 @@ upcoming-section {
   .team-social-link:hover { background: var(--primary); border-color: var(--primary); color: var(--white); }
   .team-section { background: var(--body-bg2); }
   /* Testimonials */
-  .testimonials-section {}
+  .testimonials-section {background: var(--secondary);}
+  .testimonials-container {}
   .testimonial-slider { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   @media (max-width: 991px) { .testimonial-slider { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 575px) { .testimonial-slider { grid-template-columns: 1fr; } }
@@ -880,7 +881,3 @@ function GlobalStyles() {
   return null;
 }
 export default GlobalStyles
-// .container-full { max-width: 1440px; margin: 0 auto; }
-//  .upcoming-section {
-//   background: var(--body-bg2);
-// }

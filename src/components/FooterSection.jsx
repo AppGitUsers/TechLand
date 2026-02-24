@@ -48,18 +48,18 @@ function FooterSection() {
           <div>
             <div className="footer-col-title">Stay Updated</div>
             <p style={{ color: "var(--gray)"}}>Get the latest insights on tech and innovation delivered to your inbox.</p>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
               <div className="footer-newsletter-form">
                 <input className="footer-input" type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <button type="submit" className="btn" >→</button>
               </div>
-            </form>
+            </form> */}
             <div style={{ marginTop: 28 }}>
               <div className="footer-col-title" >Contact</div>
               {[
-                { icon: "📧", text: "hello@techland.io" },
-                { icon: "📞", text: "+1 (555) 123-4567" },
-                { icon: "📍", text: "San Francisco, CA 94102" },
+                { icon: "📧", text: "hello@techlandsolutions.com" },
+                { icon: "📞", text: "9790728732" },
+                { icon: "📍", text: "DSK Towers , Ambattur Estate , chennai - 600095 " },
               ].map((c) => (
                 <div key={c.text} className="contact-item">
                   <div className="contact-icon">{c.icon}</div>

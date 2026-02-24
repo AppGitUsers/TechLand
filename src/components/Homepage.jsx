@@ -21,9 +21,9 @@ const Homepage =() =>{
             <WhySection />
             <BlogSection />
             <UpComingTech/>
-            <TeamSection/>
+            {/* <TeamSection/> */}
             <TestimonialsSection />
-            <FAQSection />
+            
             <Banner/>
             <ScrollTopButton />
         </>

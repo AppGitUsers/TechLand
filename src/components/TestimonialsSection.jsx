@@ -8,7 +8,7 @@ const TESTIMONIALS = [
 ];
 function TestimonialsSection() {
   return (
-    <section className="section" id="testimonials">
+    <section className="section testimonials-section" id="testimonials">
       {/* testimonials-section */}
       <div className="container">
         <div className="heading-section reveal" style={{ textAlign: "center" }}>

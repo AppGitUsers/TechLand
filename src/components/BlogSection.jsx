@@ -12,7 +12,7 @@ function BlogSection() {
             <div className="tag-label"><span className="hex-dot"  style={{ background: "var(--primary)" }}/>Latest Insights</div>
             <h2 >From Our Blog</h2>
           </div>
-          <a href="#" className="btn btn-border reveal" style={{background:"var(--primary)", color:"white"}}>View All Posts →</a>
+          {/* <a href="#" className="btn btn-border reveal" style={{background:"var(--primary)", color:"white"}}>View All Posts →</a> */}
         </div>
         <div className="grid-3">
           {BLOGS.map((b, i) => (
