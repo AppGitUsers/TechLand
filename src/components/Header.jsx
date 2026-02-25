@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 const NAV_LINKS = ["Home", "Services","UpComingTech", "About", "Portfolio", "Blog", "Contact"];
 function Header({ scrolled }) {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const hideButton = location.pathname.startsWith("/query");
+
+
   return (
     <>
       <header className={`site-header${scrolled ? " scrolled" : ""}`}>
@@ -48,7 +53,24 @@ function Header({ scrolled }) {
           }
           </div>
         ))}
-        <a href="#contact" className="btn" style={{ marginTop: 24, justifyContent: "center" }}>Get Started →</a>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          {!hideButton && (
+            <a
+              href="/#contact"
+              className="btn"
+              style={{ height: 38, padding: "0 18px", fontSize: 13, borderRadius: 8 }}
+            >
+              Get Started
+            </a>
+          )}
+          <button
+            className="mobile-toggle"
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
       </div>
     </>
   );
