@@ -828,49 +828,38 @@ body {
   margin-bottom: 25px;
 }
   .countdown {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
   margin-bottom: 25px;
-  width: 100%;
 }
 
 .time-box {
-  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 16px 14px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 12px 6px;
   text-align: center;
-  min-width:0px;
-  flex: 1;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.time-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  min-width: 0px;
+  backdrop-filter: blur(10px);
 }
 
 .time-box span {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: center; 
   display: block;
-  color: #ffffff;
-  line-height: 1;
-  letter-spacing: -0.5px;
-  margin-bottom: 6px;
-  /* Subtle blue glow on the number */
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
 }
-
 .time-box small {
-  display: block;
   font-size: 9px;
-  color: rgba(255,255,255,0.4);
+  color: var(--gray);
+  min-width:0;
+  justify-content: center; 
+  align-items: center;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
   .progress-wrapper {
   width: 100%;
