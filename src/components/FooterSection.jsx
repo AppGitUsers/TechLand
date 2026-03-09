@@ -57,8 +57,8 @@ function FooterSection() {
             <div style={{ marginTop: 28 }}>
               <div className="footer-col-title" >Contact</div>
               {[
-                { icon: "📧", text: "hello@techlandsolutions.com" },
-                { icon: "📞", text: "9790728732" },
+                { icon: "📧", text: "info@techlandsolutions.com" },
+                { icon: "📞", text: "9790728732 - Vishva sen : Technical director" },
                 { icon: "📍", text: "DSK Towers , Ambattur Estate , chennai - 600095 " },
               ].map((c) => (
                 <div key={c.text} className="contact-item">
