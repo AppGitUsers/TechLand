@@ -828,32 +828,38 @@ body {
   margin-bottom: 25px;
 }
   .countdown {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
   margin-bottom: 25px;
 }
 
 .time-box {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 14px 18px;
+  border-radius: 12px;
+  padding: 12px 6px;
   text-align: center;
-  min-width: 70px;
+  min-width: 0px;
   backdrop-filter: blur(10px);
 }
 
 .time-box span {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
+  justify-content: center; 
   display: block;
 }
-
 .time-box small {
-  font-size: 11px;
+  font-size: 9px;
   color: var(--gray);
+  min-width:0;
+  justify-content: center; 
+  align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
   .progress-wrapper {
   width: 100%;
