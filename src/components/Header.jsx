@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-const NAV_LINKS = ["Home", "Services","UpComingTech", "About", "Portfolio", "Blog", "Contact"];
+const NAV_LINKS = ["Home", "Services","UpComingTech", "About","Combos", "Portfolio", "Blog", "Contact"];
 function Header({ scrolled }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();

@@ -10,6 +10,7 @@ import FAQSection from './FAQSection'
 import ScrollTopButton from './ScrollTopButton'
 import UpComingTech from './UpComingTech'
 import Banner from './Banner'
+import CombosSection from './Combossection'
 const Homepage =() =>{
     
     return(
@@ -19,6 +20,7 @@ const Homepage =() =>{
             <BrandsMarquee />
             <ServicesSection />
             <WhySection />
+            <CombosSection />
             <BlogSection />
             <UpComingTech/>
             {/* <TeamSection/> */}
