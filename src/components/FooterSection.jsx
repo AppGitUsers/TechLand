@@ -58,8 +58,10 @@ function FooterSection() {
               <div className="footer-col-title" >Contact</div>
               {[
                 { icon: "📧", text: "info@techlandsolutions.com" },
-                { icon: "📞", text: "9790728732 - Vishva sen : Technical director" },
-                { icon: "📍", text: "DSK Towers , Ambattur Estate , chennai - 600095 " },
+                { icon: "📞", text: "9790728732 - Vishva sen : Technical director INDIA" },
+                { icon: "📞", text: "214-471-5086 - Techland USA" },
+                { icon: "📍", text: "Location 1 : DSK Towers , Ambattur Estate , chennai - 600095 " },
+                { icon: "📍", text: "Location 2 : McKinney , Texas USA " },
               ].map((c) => (
                 <div key={c.text} className="contact-item">
                   <div className="contact-icon">{c.icon}</div>
