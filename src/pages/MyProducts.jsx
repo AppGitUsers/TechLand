@@ -9,7 +9,7 @@ const toSortedUrls = (glob) =>
 
 const gymproImgs      = toSortedUrls(import.meta.glob("../assets/Gympro/*", { eager: true }));
 const detailingImgs   = toSortedUrls(import.meta.glob("../assets/DetailingCRM/*", { eager: true }));
-const restaurantImgs  = toSortedUrls(import.meta.glob("../assets/RestaurantBilling/*", { eager: true }));
+const restaurantImgs  = toSortedUrls(import.meta.glob("../assets/Restarunt/*", { eager: true }));
 
 const PRODUCTS = [
   {
