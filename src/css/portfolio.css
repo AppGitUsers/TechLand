@@ -106,35 +106,54 @@
 }
 
 .search-wrap {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   flex: 1;
 }
 
 .search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
+  font-size: 18px;
   color: var(--gray);
+  flex-shrink: 0;
   pointer-events: none;
+  transition: color 0.25s ease, transform 0.3s ease;
+  animation: searchPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes searchPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(0.88); }
+}
+
+.search-wrap:focus-within .search-icon {
+  color: var(--primary);
+  animation: searchSpin 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes searchSpin {
+  from { transform: rotate(-30deg) scale(0.8); }
+  to   { transform: rotate(0deg) scale(1.2); }
 }
 
 .portfolio-search {
-  width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 10px 14px 10px 36px;
+  flex: 1;
+  background: rgba(12, 90, 245, 0.06);
+  border: 1.5px solid rgba(12, 90, 245, 0.35);
+  padding: 10px 16px;
   border-radius: 10px;
   color: var(--white);
   font-size: 14px;
   font-family: var(--font-body);
   outline: none;
-  transition: border-color 0.2s ease;
+  box-shadow: 0 0 0 0 rgba(12, 90, 245, 0);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .portfolio-search:focus {
-  border-color: rgba(12, 90, 245, 0.5);
+  border-color: var(--primary);
+  background: rgba(12, 90, 245, 0.1);
+  box-shadow: 0 0 0 3px rgba(12, 90, 245, 0.18);
 }
 
 .portfolio-search::placeholder { color: var(--gray2); }

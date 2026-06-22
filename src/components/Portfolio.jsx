@@ -290,7 +290,7 @@ export default function Portfolio() {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <button className="portfolio-search-btn">Search</button>
+            <button className="portfolio-search-btn" onClick={() => setSearchTerm(searchTerm.trim())}>Search</button>
           </div>
 
           <div className="portfolio-filters">

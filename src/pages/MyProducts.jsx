@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/myproducts.css";
 import Banner from "../components/Banner";
+import gymBg from "../assets/CardBg/gym-bg.jpg";
+import carBg from "../assets/CardBg/car-bg.jpg";
+import restaurantBg from "../assets/CardBg/restaurant-bg.jpg";
 
 const toSortedUrls = (glob) =>
   Object.entries(glob)
@@ -16,8 +20,11 @@ const PRODUCTS = [
     name: "GymPro",
     category: "Gym Management",
     icon: "🏋️",
-    description:
-      "All-in-one gym management platform for handling memberships, attendance, billing, and member communication — built for modern fitness centres.",
+    description: [
+      "All-in-one gym management platform",
+      "Memberships, attendance & automated billing",
+      "Built for modern fitness centres",
+    ],
     popupDescription:
       "GymPro is a complete gym management solution designed for modern fitness centres. It handles everything from member onboarding and plan assignment to automated monthly billing and attendance tracking. Staff can manage renewals, send SMS/email reminders for dues, and monitor check-in/check-out activity in real time — all from a single dashboard.",
     features: [
@@ -28,6 +35,7 @@ const PRODUCTS = [
       // "SMS / email notifications for renewals & dues",
     ],
     screenshots: gymproImgs,
+    cardBg: gymBg,
     cost: {
       setup: "₹4,000",
       development: "₹Free",
@@ -41,8 +49,11 @@ const PRODUCTS = [
     name: "Detailing CRM",
     category: "Car Detailing CRM",
     icon: "🚗",
-    description:
-      "Purpose-built CRM for auto detailing businesses to manage bookings, customer history, invoices, and follow-ups all in one place.",
+    description: [
+      "Purpose-built CRM for auto detailers",
+      "Bookings, invoices & vehicle history",
+      "Reduce no-shows, improve retention",
+    ],
     popupDescription:
       "Detailing CRM is built specifically for auto detailing shops and mobile detailers. It centralises customer vehicle records, service history, and appointment scheduling into one clean interface. Generate invoices instantly, automate follow-up reminders via SMS or email, and assign jobs to staff with live status tracking — reducing no-shows and improving customer retention.",
     features: [
@@ -53,6 +64,7 @@ const PRODUCTS = [
       "Staff task assignment & job status tracking",
     ],
     screenshots: detailingImgs,
+    cardBg: carBg,
     cost: {
       setup: "₹4,000",
       development: "₹Free",
@@ -65,8 +77,11 @@ const PRODUCTS = [
     name: "Restaurant Billing",
     category: "Restaurant POS",
     icon: "🍽️",
-    description:
-      "Fast and intuitive billing software for restaurants — manage tables, orders, KOT printing, and end-of-day reports with ease.",
+    description: [
+      "Fast & intuitive restaurant POS",
+      "Tables, orders, KOT & GST billing",
+      "Built for cafes, restaurants & food courts",
+    ],
     popupDescription:
       "Restaurant Billing is a lightweight yet powerful POS system for dine-in restaurants, cafes, and food courts. Manage table-wise orders, send KOTs directly to the kitchen, and print GST-compliant bills in seconds. The built-in menu builder lets you organise categories and pricing with ease, while daily and weekly reports give you a clear picture of your sales performance.",
     features: [
@@ -77,6 +92,7 @@ const PRODUCTS = [
       "Multi-user access with role-based permissions",
     ],
     screenshots: restaurantImgs,
+    cardBg: restaurantBg,
     cost: {
       setup: "₹4,000",
       development: "Free",
@@ -89,8 +105,11 @@ const PRODUCTS = [
     name: "Coming Soon",
     category: "New Product",
     icon: "🚀",
-    description:
-      "We are working on something exciting. Our next product is currently in development and will be launching soon.",
+    description: [
+      "Something exciting is in development",
+      "Our next product launches very soon",
+      "Stay tuned for the big reveal",
+    ],
     popupDescription: "",
     features: [
       "Innovation in progress",
@@ -114,6 +133,7 @@ const COST_ITEMS = [
 
 // ── Cost Modal ───────────────────────────────────────────────────────────────
 function CostModal({ product, onClose }) {
+  const navigate = useNavigate();
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const handler = (e) => { if (e.key === "Escape") onClose(); };
@@ -152,7 +172,7 @@ function CostModal({ product, onClose }) {
           <button
             className="product-cta-btn"
             style={{ width: "100%", marginTop: 8 }}
-            onClick={() => { window.location.href = "/query"; }}
+            onClick={() => navigate(`/query?service=Ready+Products&product=${encodeURIComponent(product.name)}`)}
           >
             Get a Custom Quote <span className="btn-arrow">→</span>
           </button>
@@ -165,6 +185,7 @@ function CostModal({ product, onClose }) {
 // ── Product Popup Modal ──────────────────────────────────────────────────────
 function ProductModal({ product, onClose }) {
   const [lightbox, setLightbox] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -181,12 +202,18 @@ function ProductModal({ product, onClose }) {
       <div className="pm-modal">
         <button className="pm-close" onClick={onClose} aria-label="Close">✕</button>
 
-        {/* Header band */}
-        <div className="pm-header-band" style={{ background: product.gradient }}>
-          <span className="pm-header-icon">{product.icon}</span>
-          <div>
-            <span className="pm-category">{product.category}</span>
-            <h2 className="pm-title">{product.name}</h2>
+        {/* Header */}
+        <div className="pm-header-band">
+          {product.cardBg && <img src={product.cardBg} className="pm-header-img" alt="" />}
+          <div className="pm-header-overlay" style={{ background: product.gradient }} />
+          <div className="pm-header-content">
+            <div className="pm-header-icon-wrap">
+              <span className="pm-header-icon">{product.icon}</span>
+            </div>
+            <div>
+              <span className="pm-category">{product.category}</span>
+              <h2 className="pm-title">{product.name}</h2>
+            </div>
           </div>
         </div>
 
@@ -199,7 +226,7 @@ function ProductModal({ product, onClose }) {
           {/* Image gallery */}
           {product.screenshots.length > 0 && (
             <div className="pm-gallery-wrap">
-              <div className="pm-gallery-label">Screenshots</div>
+              <div className="pm-section-label"><span className="pm-label-dot" />Screenshots</div>
               <div className="pm-gallery">
                 {product.screenshots.map((src, i) => (
                   <div key={i} className="pm-thumb-wrap" onClick={() => setLightbox(i)}>
@@ -213,9 +240,9 @@ function ProductModal({ product, onClose }) {
 
           {/* Features */}
           <div className="pm-features">
-            <div className="pm-gallery-label">Key Features</div>
-            {product.features.map((f) => (
-              <div className="pm-feature-item" key={f}>
+            <div className="pm-section-label"><span className="pm-label-dot" />Key Features</div>
+            {product.features.map((f, i) => (
+              <div className="pm-feature-item" key={f} style={{ animationDelay: `${0.3 + i * 0.07}s` }}>
                 <span className="pm-feature-check">✓</span>
                 <span>{f}</span>
               </div>
@@ -223,9 +250,8 @@ function ProductModal({ product, onClose }) {
           </div>
 
           <button
-            className="product-cta-btn"
-            style={{ marginTop: 24, width: "100%" }}
-            onClick={() => { window.location.href = "/query"; }}
+            className="product-cta-btn pm-cta"
+            onClick={() => navigate(`/query?service=Ready+Products&product=${encodeURIComponent(product.name)}`)}
           >
             Get a Demo <span className="btn-arrow">→</span>
           </button>
@@ -260,9 +286,12 @@ function ProductCard({ product, index, onClick, onCostClick }) {
     >
       {/* Visual banner */}
       <div className="product-visual">
-        <div className="product-visual-bg" style={{ background: product.gradient }} />
-        <span className="product-visual-icon">{product.icon}</span>
-        <span className="product-badge">{product.category}</span>
+        {product.cardBg ? (
+          <img src={product.cardBg} alt="" className="product-visual-img" />
+        ) : (
+          <div className="product-visual-bg" style={{ background: product.gradient }} />
+        )}
+        <span className="product-badge">{product.icon} {product.category}</span>
         <span className="product-num">{GRAD_NUM[index]}</span>
         {!product.comingSoon && <div className="product-view-hint">↗</div>}
       </div>
@@ -280,7 +309,11 @@ function ProductCard({ product, index, onClick, onCostClick }) {
             </button>
           )}
         </div>
-        <p className="product-desc">{product.description}</p>
+        <div className="product-desc">
+          <span className="desc-l1">{product.description[0]}</span>
+          <span className="desc-l2">{product.description[1]}</span>
+          <span className="desc-l3">{product.description[2]}</span>
+        </div>
 
         <div className="product-features">
           {product.features.map((f) => (

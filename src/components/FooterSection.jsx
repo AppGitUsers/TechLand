@@ -28,20 +28,12 @@ function FooterSection() {
           <div>
             <div className="footer-col-title" >Company</div>
                 {NAV_LINKS.map((l) => (
-                  <div key={l} className="footer-col-title">
-                    {
-                      l==="Portfolio"?(
-                        <a href={`/${l.toLowerCase()}`} className="footer-link">
-                        <span className="hex" />
-                          {l}
-                        </a>
-                      ):(
-                        <a href={`/#${l.toLowerCase()}`} className="footer-link">
-                        <span className="hex" />
-                          {l}
-                        </a>
-                      )
-                    }
+                  <div key={l}>
+                    {l === "Portfolio" ? (
+                      <a href={`/${l.toLowerCase()}`} className="footer-link">{l}</a>
+                    ) : (
+                      <a href={`/#${l.toLowerCase()}`} className="footer-link">{l}</a>
+                    )}
                   </div>
                 ))}
             </div>

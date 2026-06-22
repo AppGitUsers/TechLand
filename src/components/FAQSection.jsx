@@ -2,12 +2,12 @@ import { useState } from "react";
 import "../css/FAQSection.css"
 
 const FAQS = [
-  { q: "What technologies do you specialise in?"},
-  { q: "How long does a typical project take?"},
-  { q: "Do you offer ongoing maintenance?"},
-  { q: "How do you handle project communication?"},
-  { q: "Can you work with our existing team?"},
-  { q: "What's your pricing model?"},
+  { q: "What technologies do you specialise in?", a: "We specialise in React, Node.js, Python, Java Spring Boot, PostgreSQL, and cloud platforms like AWS and Supabase. We pick the right stack based on your project needs." },
+  { q: "How long does a typical project take?", a: "Timelines vary by scope — a simple website takes 1–2 weeks, a custom web app 1–3 months, and enterprise systems 3–6 months. We provide a detailed estimate after the initial consultation." },
+  { q: "Do you offer ongoing maintenance?", a: "Yes. We offer monthly maintenance plans covering bug fixes, updates, performance monitoring, and feature additions. Our Ready Products include annual renewal plans." },
+  { q: "How do you handle project communication?", a: "We provide weekly progress updates via email or WhatsApp, with a dedicated point of contact. Larger projects also get access to a shared task board for real-time visibility." },
+  { q: "Can you work with our existing team?", a: "Absolutely. We regularly collaborate with in-house teams, handling specific modules or the full stack as needed. We're flexible and can integrate into your existing workflow." },
+  { q: "What's your pricing model?", a: "We offer both fixed-price and milestone-based pricing. Ready Products start at ₹4,000 setup with annual renewals. Custom projects are quoted after a free discovery call." },
 ];
 
 function FAQSection({ onSelectQuestion }) {
@@ -43,7 +43,7 @@ function FAQSection({ onSelectQuestion }) {
           <span className="hex-dot" style={{ background: "var(--orange)" }} />
           FAQ
         </div>
-        <h2>Frequently Asked<br />Questions</h2>
+        <h2>Frequently Asked Questions</h2>
         <p>Click any question to auto-fill it into the form — or ask us something new.</p>
       </div>
 

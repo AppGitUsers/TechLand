@@ -92,21 +92,26 @@ export default function QueryPage() {
   //   };
   // }, []);
 
-  // Pre-fill service from URL param
+  // Pre-fill service and product from URL params
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const selectedService = params.get("service");
-    if (selectedService) {
-      setFormData((prev) => ({ ...prev, service: selectedService }));
+    const selectedProduct = params.get("product");
+    if (selectedService || selectedProduct) {
+      setFormData((prev) => ({
+        ...prev,
+        ...(selectedService && { service: selectedService }),
+        ...(selectedProduct && { product: selectedProduct }),
+      }));
     }
   }, [location.search]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "service" && value !== "Ready Products") {
-      setFormData({ ...formData, service: value, product: "" });
+      setFormData((prev) => ({ ...prev, service: value, product: "" }));
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
@@ -168,8 +173,7 @@ export default function QueryPage() {
                   Get In Touch
                 </div>
                 <h2 className="query-form-title">
-                  Submit Your<br />
-                  <span>Service Request</span>
+                  Submit Your <span>Service Request</span>
                 </h2>
                 <p className="query-form-subtitle">
                   Tell us about your project and we'll get back to you within 24 hours.
@@ -293,7 +297,7 @@ export default function QueryPage() {
                   ) : (
                     <div className="btn-inner">
                       Submit Request
-                      <span className="btn-arrow">â†’</span>
+                      {/* <span className="btn-arrow">â†’</span> */}
                     </div>
                   )}
                 </button>

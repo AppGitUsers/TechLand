@@ -1,4 +1,4 @@
-﻿import { useState,useEffect } from 'react'
+﻿import { useState, useEffect, useLayoutEffect } from 'react'
 import './App.css'
 import GlobalStyles from './components/GlobalStyles'
 import Preloader from './components/Preloader'
@@ -10,8 +10,17 @@ import Homepage from './components/Homepage'
 import QueryForm from './pages/queryform'
 import MyProducts from './pages/MyProducts'
 function useReveal() {
+  // Mark already-visible elements before the browser paints (no flash on navigation)
+  useLayoutEffect(() => {
+    document.querySelectorAll(".reveal").forEach((el) => {
+      const { top, bottom } = el.getBoundingClientRect();
+      if (top < window.innerHeight && bottom > 0) el.classList.add("in-view");
+    });
+  });
+
+  // Scroll-reveal for elements below the fold
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
+    const els = document.querySelectorAll(".reveal:not(.in-view)");
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); } }),
       { threshold: 0.12 }
