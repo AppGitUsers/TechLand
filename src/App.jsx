@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+﻿import { useState,useEffect } from 'react'
 import './App.css'
 import GlobalStyles from './components/GlobalStyles'
 import Preloader from './components/Preloader'
@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio'
 import {Routes,Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import QueryForm from './pages/queryform'
+import MyProducts from './pages/MyProducts'
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -47,6 +48,7 @@ function App() {
           <Route path="/" element={<Homepage/>}/>
           <Route path = "/query" element={<QueryForm/>}/>
           <Route path="/portfolio" element={<Portfolio/>}></Route>
+          <Route path="/myproducts" element={<MyProducts/>}/>
         </Routes>
       </main>
       <FooterSection />

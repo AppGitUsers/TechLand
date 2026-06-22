@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
-const NAV_LINKS = ["Home", "Services","UpComingTech", "About","Combos", "Portfolio", "Blog", "Contact"];
+import { useLocation, Link } from "react-router-dom";
+const NAV_LINKS = ["Home", "Services","UpComingTech", "About","Combos", "Portfolio", "My Products", "Blog", "Contact"];
+const ROUTE_LINKS = ["Portfolio", "My Products"];
+const toHref = (l) => l === "My Products" ? "/myproducts" : `/${l.toLowerCase()}`;
 function Header({ scrolled }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -17,20 +19,18 @@ function Header({ scrolled }) {
               <ul className="nav-list">
                 {NAV_LINKS.map((l) => (
                   <li key={l}>
-                  {
-                    l==="Portfolio"?(
-                    <a href={`/${l.toLowerCase()}`} className="nav-link">
-                      <span className="hex" />
-                      {l}
-                    </a>):(
-                    <a href={`/#${l.toLowerCase()}`} className="nav-link">
-                      <span className="hex" />
-                      {l}
-                    </a>
-                    )
-                  }
+                    {ROUTE_LINKS.includes(l) ? (
+                      <Link to={toHref(l)} className="nav-link">
+                        <span className="hex" />
+                        {l}
+                      </Link>
+                    ) : (
+                      <a href={`/#${l.toLowerCase()}`} className="nav-link">
+                        <span className="hex" />
+                        {l}
+                      </a>
+                    )}
                   </li>
-                  
                 ))}
               </ul>
             </nav>
@@ -46,12 +46,11 @@ function Header({ scrolled }) {
         <button className="mobile-menu-close" onClick={() => setOpen(false)}>✕</button>
         <a href="#" className="site-logo" style={{ marginBottom: 32, display: "block" }}>Tech<span style={{ color: "var(--primary)" }}>land</span></a>
         {NAV_LINKS.map((l) => (
-          <div key={l}>
-          {
-            l==="Portfolio"?(<a key={l} href={`/${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>):
-            (<a key={l} href={`/#${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>)
-          }
-          </div>
+          ROUTE_LINKS.includes(l) ? (
+            <Link key={l} to={toHref(l)} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</Link>
+          ) : (
+            <a key={l} href={`/#${l.toLowerCase()}`} className="mobile-nav-link" onClick={() => setOpen(false)}>{l}</a>
+          )
         ))}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           {!hideButton && (

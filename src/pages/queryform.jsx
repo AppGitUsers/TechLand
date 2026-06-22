@@ -1,8 +1,62 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../supabase";
 import FAQSection from "../components/FAQSection";
 import "../css/queryform.css";
+
+function CustomSelect({ name, value, onChange, options, placeholder, required }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const selected = options.find((o) => o.value === value);
+
+  const handleSelect = (val) => {
+    onChange({ target: { name, value: val } });
+    setOpen(false);
+  };
+
+  return (
+    <div className="custom-select-wrap" ref={ref}>
+      <div
+        className={`custom-select-box form-input-styled${value ? " filled" : ""}${open ? " open" : ""}`}
+        onClick={() => setOpen((p) => !p)}
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setOpen((p) => !p); if (e.key === "Escape") setOpen(false); }}
+        role="combobox"
+        aria-expanded={open}
+      >
+        <span className={selected ? "cs-value" : "cs-placeholder"}>
+          {selected ? selected.label : placeholder}
+        </span>
+        <span className={`cs-arrow${open ? " flipped" : ""}`}>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#7e8695" strokeWidth="1.5" strokeLinecap="round"/></svg>
+        </span>
+      </div>
+
+      {open && (
+        <div className="cs-dropdown">
+          {options.map((o) => (
+            <div
+              key={o.value}
+              className={`cs-option${o.value === value ? " selected" : ""}`}
+              onClick={() => handleSelect(o.value)}
+            >
+              {o.label}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <input type="hidden" name={name} value={value} required={required} />
+    </div>
+  );
+}
 
 
 export default function QueryPage() {
@@ -18,8 +72,11 @@ export default function QueryPage() {
     email: "",
     contact: "",
     service: "",
+    product: "",
     custom: "",
   });
+
+  const READY_PRODUCTS = ["GymPro", "Detailing CRM", "Restaurant Billing"];
 
   // Inject styles
   // useEffect(() => {
@@ -45,7 +102,12 @@ export default function QueryPage() {
   }, [location.search]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "service" && value !== "Ready Products") {
+      setFormData({ ...formData, service: value, product: "" });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   // Called when user clicks a FAQ question
@@ -75,7 +137,9 @@ export default function QueryPage() {
             name: formData.name,
             email: formData.email,
             contact: formData.contact,
-            service: formData.service,
+            service: formData.service === "Ready Products" && formData.product
+              ? `Ready Products - ${formData.product}`
+              : formData.service,
             custom_text: formData.custom,
           },
         ]);
@@ -95,7 +159,7 @@ export default function QueryPage() {
       <div className="container">
         <div className="query-split">
 
-          {/* ── LEFT: FORM ── */}
+          {/* â”€â”€ LEFT: FORM â”€â”€ */}
           <div className="query-form-panel">
             <div className="query-form-card reveal">
               <div className="query-form-header">
@@ -154,22 +218,37 @@ export default function QueryPage() {
 
                 <div className="form-field-wrapper">
                   <label className="form-field-label">Select a Service</label>
-                  <select
+                  <CustomSelect
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className={`form-input-styled${formData.service ? " filled" : ""}`}
-                  >
-                    <option value="">Choose a service...</option>
-                    <option value="Custom Web Applications">Custom Web Applications</option>
-                    <option value="Mobile & Cross-Platform Applications">Mobile &amp; Cross-Platform Applications</option>
-                    <option value="Responsive Websites & Business Portals">Responsive Websites &amp; Business Portals</option>
-                    <option value="Desktop Applications & Enterprise Software">Desktop Applications &amp; Enterprise Software</option>
-                    <option value="CRM & Business Automation Systems">CRM &amp; Business Automation Systems</option>
-                    <option value="Invoice Management & Maintenance">Invoice Management &amp; Ongoing Maintenance</option>
-                  </select>
+                    placeholder="Choose a service..."
+                    options={[
+                      { value: "Ready Products", label: "Ready Products" },
+                      { value: "Custom Web Applications", label: "Custom Web Applications" },
+                      { value: "Mobile & Cross-Platform Applications", label: "Mobile & Cross-Platform Applications" },
+                      { value: "Responsive Websites & Business Portals", label: "Responsive Websites & Business Portals" },
+                      { value: "Desktop Applications & Enterprise Software", label: "Desktop Applications & Enterprise Software" },
+                      { value: "CRM & Business Automation Systems", label: "CRM & Business Automation Systems" },
+                      { value: "Invoice Management & Maintenance", label: "Invoice Management & Ongoing Maintenance" },
+                    ]}
+                  />
                 </div>
+
+                {formData.service === "Ready Products" && (
+                  <div className="form-field-wrapper" style={{ marginTop: -8 }}>
+                    <label className="form-field-label">Select a Product</label>
+                    <CustomSelect
+                      name="product"
+                      value={formData.product}
+                      onChange={handleChange}
+                      required
+                      placeholder="Choose a product..."
+                      options={READY_PRODUCTS.map((p) => ({ value: p, label: p }))}
+                    />
+                  </div>
+                )}
 
                 <div className="form-field-wrapper">
                   <label className="form-field-label">
@@ -186,7 +265,7 @@ export default function QueryPage() {
                         borderRadius: 6,
                         animation: "autofillPop 0.4s ease"
                       }}>
-                        ✦ Auto-filled from FAQ
+                        âœ¦ Auto-filled from FAQ
                       </span>
                     )}
                   </label>
@@ -209,12 +288,12 @@ export default function QueryPage() {
                   {isSubmitting ? (
                     <div className="btn-inner">
                       <div className="btn-spinner" />
-                      Submitting…
+                      Submittingâ€¦
                     </div>
                   ) : (
                     <div className="btn-inner">
                       Submit Request
-                      <span className="btn-arrow">→</span>
+                      <span className="btn-arrow">â†’</span>
                     </div>
                   )}
                 </button>
@@ -222,7 +301,7 @@ export default function QueryPage() {
             </div>
           </div>
 
-          {/* ── RIGHT: FAQ ── */}
+          {/* â”€â”€ RIGHT: FAQ â”€â”€ */}
           <div className="query-faq-panel reveal reveal-delay-1">
             <FAQSection onSelectQuestion={handleFAQSelect} />
           </div>
@@ -233,7 +312,7 @@ export default function QueryPage() {
       {showSuccess && (
         <div className="success-overlay-new">
           <div className="success-modal-new">
-            <div className="success-icon">🚀</div>
+            <div className="success-icon">ðŸš€</div>
             <h3>Request Received!</h3>
             <p>
               Thanks for reaching out. Our team will review your project details

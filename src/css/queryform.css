@@ -166,17 +166,81 @@
     100% { transform: scale(1); }
   }
 
-  select.form-input-styled {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e8695' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    padding-right: 40px;
+  /* ── Custom Select ── */
+  .custom-select-wrap {
+    position: relative;
+    width: 100%;
   }
 
-  select.form-input-styled option {
+  .custom-select-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 40px;
+    position: relative;
+  }
+
+  .custom-select-box.open {
+    border-color: rgba(12, 90, 245, 0.6);
+    background: rgba(12, 90, 245, 0.05);
+    box-shadow: 0 0 0 3px rgba(12, 90, 245, 0.1);
+  }
+
+  .cs-placeholder { color: var(--gray2); }
+  .cs-value { color: var(--white); }
+
+  .cs-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  .cs-arrow.flipped {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .cs-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
     background: var(--secondary);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 999;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    animation: csDropIn 0.18s ease;
+  }
+
+  @keyframes csDropIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .cs-option {
+    padding: 12px 18px;
+    font-size: 14px;
+    color: var(--gray4);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .cs-option:hover {
+    background: rgba(12, 90, 245, 0.12);
     color: var(--white);
+  }
+
+  .cs-option.selected {
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(12, 90, 245, 0.08);
   }
 
   textarea.form-input-styled {
