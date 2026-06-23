@@ -151,21 +151,20 @@ function CostModal({ product, onClose }) {
 
         <div className="cost-modal-header" style={{ background: product.gradient }}>
           <span className="pm-header-icon">{product.icon}</span>
-          <div>
-            <span className="pm-category">{product.category}</span>
-            <h2 className="pm-title">{product.name}</h2>
-          </div>
+          <h2 className="pm-title">{product.name}</h2>
           <span className="cost-header-tag">Cost Details</span>
         </div>
 
         <div className="cost-modal-body">
           <p className="cost-note">Transparent pricing — no hidden fees. Contact us to get a custom quote.</p>
-          <div className="cost-grid">
+          <div className="cost-list">
             {COST_ITEMS.map(({ key, label, icon }) => (
-              <div className="cost-card" key={key}>
-                <div className="cost-card-icon">{icon}</div>
-                <div className="cost-card-label">{label}</div>
-                <div className="cost-card-value">{product.cost[key]}</div>
+              <div className="cost-row" key={key}>
+                <div className="cost-row-left">
+                  <span className="cost-row-icon">{icon}</span>
+                  <span className="cost-row-label">{label}</span>
+                </div>
+                <span className="cost-row-value">{product.cost[key]}</span>
               </div>
             ))}
           </div>
@@ -205,15 +204,11 @@ function ProductModal({ product, onClose }) {
         {/* Header */}
         <div className="pm-header-band">
           {product.cardBg && <img src={product.cardBg} className="pm-header-img" alt="" />}
-          <div className="pm-header-overlay" style={{ background: product.gradient }} />
           <div className="pm-header-content">
             <div className="pm-header-icon-wrap">
               <span className="pm-header-icon">{product.icon}</span>
             </div>
-            <div>
-              <span className="pm-category">{product.category}</span>
-              <h2 className="pm-title">{product.name}</h2>
-            </div>
+            <h2 className="pm-title">{product.name}</h2>
           </div>
         </div>
 
