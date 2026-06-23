@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-const NAV_LINKS = ["Home", "Services","UpComingTech", "About","Combos", "Portfolio", "My Products", "Blog", "Contact"];
-const ROUTE_LINKS = ["Portfolio", "My Products"];
-const toHref = (l) => l === "My Products" ? "/myproducts" : `/${l.toLowerCase()}`;
+const NAV_LINKS = ["Home", "Services","UpComingTech", "About","Combos", "Portfolio", "Our Products", "Blog", "Contact"];
+const ROUTE_LINKS = ["Portfolio", "Our Products"];
+const toHref = (l) => l === "Our Products" ? "/myproducts" : `/${l.toLowerCase()}`;
 function Header({ scrolled }) {
   const [open, setOpen] = useState(false);
   const location = useLocation();

@@ -321,9 +321,8 @@ export default function Portfolio() {
               
               return (
                 <div
-                  className="project-card reveal"
+                  className="project-card"
                   key={project.title}
-                  style={{ animationDelay: `${i * 0.07}s` }}
                   onClick={() => openProject(project, originalIndex)}
                   role="button"
                   tabIndex={0}

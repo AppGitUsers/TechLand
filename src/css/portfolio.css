@@ -44,7 +44,6 @@
   background: linear-gradient(90deg, var(--primary), #6a5af9);
   border-radius: 2px;
   transform-origin: left;
-  animation: underlineExpand 0.6s ease 0.2s both;
 }
 
 @keyframes underlineExpand {
@@ -79,7 +78,6 @@
   height: 7px;
   border-radius: 50%;
   background: var(--primary);
-  animation: dotPulse 2s ease-in-out infinite;
 }
 
 @keyframes dotPulse {
@@ -117,8 +115,7 @@
   color: var(--gray);
   flex-shrink: 0;
   pointer-events: none;
-  transition: color 0.25s ease, transform 0.3s ease;
-  animation: searchPulse 2.5s ease-in-out infinite;
+  transition: color 0.25s ease;
 }
 
 @keyframes searchPulse {
@@ -128,7 +125,6 @@
 
 .search-wrap:focus-within .search-icon {
   color: var(--primary);
-  animation: searchSpin 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
 }
 
 @keyframes searchSpin {
@@ -456,7 +452,6 @@
   align-items: flex-end;
   justify-content: center;
   padding: 0 14px 14px;
-  animation: overlayIn 0.2s ease;
 }
 
 @keyframes overlayIn {
@@ -475,8 +470,6 @@
   flex-direction: column;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 -12px 48px rgba(12,90,245,0.08), 0 32px 64px rgba(0,0,0,0.6);
-  animation: drawerUp 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
 }
 
 @keyframes drawerUp {

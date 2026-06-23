@@ -272,8 +272,7 @@ function ProductModal({ product, onClose }) {
 function ProductCard({ product, index, onClick, onCostClick }) {
   return (
     <div
-      className={`product-card reveal${product.comingSoon ? " coming-soon-card" : ""}`}
-      style={{ transitionDelay: `${index * 0.15}s` }}
+      className={`product-card${product.comingSoon ? " coming-soon-card" : ""}`}
       onClick={!product.comingSoon ? onClick : undefined}
       role={!product.comingSoon ? "button" : undefined}
       tabIndex={!product.comingSoon ? 0 : undefined}
